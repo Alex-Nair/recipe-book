@@ -1,0 +1,37 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'styles/main.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center; margin-bottom: 0;">RECIPE BOOK</h1>
+<p style="text-align: center;">Your personal recipe book and shopping list all in one place.</p>
+<hr>
+<h2>New and Trending Recipes:</h2>
+<div class="list_recipe">
+    <p>Recipes will go here later. A whole list of them.</p>
+</div>
+
+<hr>
+
+<h2>Most Popular Recipes:</h2>
+<div class="list_recipe">
+    <p>Recipes will go here later. A whole list of them.</p>
+</div>
+
+<hr>
+
+<div class="descrpition_paragraph">
+    <p>
+        Working with a regular recipe book can be quite the hassle, especially if you need to carry it around wherever you go.
+        Recipe Book grants you much more control over what recipes you want and when you can access them. You can either passively
+        surf the list of recipes on the website and pick the ones you like the most, or create an account and construct your own
+        recipe books consisting of your recipes and other people's recipes. You can share your recipes for others to see, and even
+        favourite recieps that you believe deserve more attention. Recipe Book lets you do it all, and all you need is an internet
+        connection.
+    </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Recipe Book</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="{% static 'styles/template.css' %}">
+
+        {% block header %}{% endblock %}
+    </head>
+
+    <body>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{% url 'main' %}">Home</a></li>
+                <li><a href="{% url 'recipes' %}">Recipes</a></li>
+                <li><a href="{% url 'stuff' %}">My Stuff</a></li>
+            </ul>
+            <div class="nav-auth">
+                <a href="{% url 'signin' %}" class="btn-signin">Sign In</a>
+                <a href="{% url 'register' %}" class="btn-register">Register</a>
+            </div>
+        </nav>
+
+        <div class="content-wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

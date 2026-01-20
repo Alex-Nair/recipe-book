@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5a7c5a;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background-color: #f0f5f0;
+}
+
+.nav-links a:hover {
+    background-color: #e0ebe0;
+    color: #4a6a4a;
+    transform: translateY(-2px);
+}
+
+.nav-auth {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.nav-auth a {
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-signin {
+    color: #5a7c5a;
+    border: 2px solid #5a7c5a;
+    background-color: transparent;
+}
+
+.btn-signin:hover {
+    background-color: #5a7c5a;
+    color: white;
+}
+
+.btn-register {
+    background-color: #7a9c7a;
+    color: white;
+    border: 2px solid #7a9c7a;
+}
+
+.btn-register:hover {
+    background-color: #6a8c6a;
+    border-color: #6a8c6a;
+}
+
+/* Main Content */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    color: #5a7c5a;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h2 {
+    color: #6a8c6a;
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+    font-weight: 500;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #e0ebe0;
+    margin: 2rem 0;
+}
+
+/* Recipe Grid */
+.list_recipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    max-width: 100%;
+}
+
+/* Recipe Card Styles (for when recipes are added) */
+.recipe-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #f0f5f0;
+}
+
+.recipe-info {
+    padding: 1rem;
+}
+
+.recipe-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.recipe-favorites {
+    font-size: 0.9rem;
+    color: #7a9c7a;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.recipe-favorites::before {
+    content: "♥";
+    color: #d4a574;
+}
