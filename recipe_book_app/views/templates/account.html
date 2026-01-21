@@ -1,0 +1,72 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'styles/account.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-card">
+        <h2>Your Account</h2>
+        <p>Username: {{ username }}</p>
+        <p>Emaill: {{ email }}</p>
+        <p>Password: *****</p>
+
+        <div class="account-buttons">
+            <form method="post" style="width: 100%">
+                {% csrf_token %}
+                <button type="submit" name="logout" class="account-btn account-btn-primary" style="width: 100%">Logout</button>
+            </form>
+
+            <button type="button" class="account-btn account-btn-danger" id="deleteAccountBtn">Delete Account</button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Account Modal -->
+<div id="deleteAccountModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeDeleteAccount">&times;</span>
+        <h2>Delete Account</h2>
+        <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+        <div class="modal-actions">
+            <form method="post" id="deleteAccountForm">
+                {% csrf_token %}
+                <button type="submit" name="delete" class="account-btn account-btn-danger">Yes, Delete Account</button>
+            </form>
+            <button type="button" class="account-btn account-btn-secondary" id="cancelDelete">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Delete Account Modal
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+    const deleteAccountModal = document.getElementById('deleteAccountModal');
+    const closeDeleteAccount = document.getElementById('closeDeleteAccount');
+    const cancelDelete = document.getElementById('cancelDelete');
+
+    deleteAccountBtn.onclick = function() {
+        deleteAccountModal.style.display = 'block';
+    }
+
+    closeDeleteAccount.onclick = function() {
+        deleteAccountModal.style.display = 'none';
+    }
+
+    cancelDelete.onclick = function() {
+        deleteAccountModal.style.display = 'none';
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+        if (event.target == changePasswordModal) {
+            changePasswordModal.style.display = 'none';
+        }
+        if (event.target == deleteAccountModal) {
+            deleteAccountModal.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,243 @@
+/* Shared auth page styling for sign in and register */
+.auth-page {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.auth-header {
+    text-align: center;
+    max-width: 640px;
+}
+
+.auth-header h1 {
+    margin-bottom: 0.35rem;
+}
+
+.auth-header p {
+    color: #556b55;
+    font-size: 1rem;
+}
+
+.auth-card {
+    width: min(520px, 100%);
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e4ede4;
+}
+
+.auth-card h2 {
+    margin: 0 0 1rem 0;
+    text-align: center;
+    color: #6a8c6a;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.field label {
+    font-weight: 600;
+    color: #4a6a4a;
+}
+
+.field input {
+    border: 1px solid #d7e2d7;
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #f7faf7;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: #7a9c7a;
+    box-shadow: 0 0 0 3px rgba(122, 156, 122, 0.2);
+    background-color: #ffffff;
+}
+
+/* Account buttons */
+.account-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.account-btn {
+    padding: 0.85rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.account-btn-primary {
+    background-color: #6a8c6a;
+    color: #ffffff;
+}
+
+.account-btn-primary:hover {
+    background-color: #5a7a5a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(106, 140, 106, 0.3);
+}
+
+.account-btn-danger {
+    background-color: #d32f2f;
+    color: #ffffff;
+}
+
+.account-btn-danger:hover {
+    background-color: #b71c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.account-btn-secondary {
+    background-color: #e0e0e0;
+    color: #333333;
+}
+
+.account-btn-secondary:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-1px);
+}
+
+.account-btn:active {
+    transform: translateY(0);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: min(500px, 90%);
+    position: relative;
+    animation: slideDown 0.3s;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    margin: 0 0 1.5rem 0;
+    color: #6a8c6a;
+    text-align: center;
+}
+
+.modal-content p {
+    color: #556b55;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-actions form {
+    flex: 1;
+    min-width: 150px;
+}
+
+.modal-actions .account-btn {
+    width: 100%;
+}
+
+.modal .field {
+    margin-bottom: 1rem;
+}
+
+.modal .auth-form {
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 540px) {
+    .auth-card {
+        padding: 1.25rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        margin: 15% auto;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .account-btn {
+        width: 100%;
+    }
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin: 0;
+}

@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="auth-header">
+        <h1>RECIPE BOOK</h1>
+        <p>Your personal recipe book and shopping list all in one place.</p>
+    </div>
+
+    <div class="auth-card">
+        <h2>Login</h2>
+        <form class="auth-form" method="post">
+            {% csrf_token %}
+            <div class="field">
+                <label for="username">Username</label>
+                <input name="username" type="text" value="{{ username }}" placeholder="Enter your username here..." required>
+            </div>
+
+            <div class="field">
+                <label for="password">Password</label>
+                <input name="password" type="password" value="{{ password }}" placeholder="Enter your password here..." required>
+            </div>
+
+            <p class="error">{{ error }}</p>
+
+            <button type="submit" class="primary-btn">Sign In</button>
+        </form>
+        <p class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Sign up</a> instead.</p>
+    </div>
+</div>
+{% endblock %}
