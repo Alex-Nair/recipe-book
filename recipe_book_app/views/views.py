@@ -119,3 +119,43 @@ def account(request):
             "username": request.user.username,
             "email": request.user.email
         })
+
+
+def stuff(request):
+    if not request.user.is_authenticated:
+        return redirect("signin")
+
+    return render(request, "stuff/stuff.html")
+
+
+def stuff_recipe(request):
+    if not request.user.is_authenticated:
+        return redirect("signin")
+    
+    if request.method == "POST":
+        pass
+
+    else:
+        return render(request, "stuff/recipe.html")
+
+
+def stuff_recipebook(request):
+    if not request.user.is_authenticated:
+        return redirect("signin")
+    
+    if request.method == "POST":
+        pass
+
+    else:
+        return render(request, "stuff/recipe_book.html")
+
+
+def stuff_shoppinglist(request):
+    if not request.user.is_authenticated:
+        return redirect("signin")
+    
+    if request.method == "POST":
+        pass
+
+    else:
+        return render(request, "stuff/shopping_list.html")

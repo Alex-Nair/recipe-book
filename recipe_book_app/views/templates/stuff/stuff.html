@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'styles/recipes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-page">
+    <div class="stuff-navigation">
+        <a href="{% url 'stuff' %}">Recipes</a>
+        <a href="{% url 'shopping' %}">Shopping List</a>
+    </div>
+
+    <div class="stuff-sections">
+        <div>
+            <h2>Recipe Books</h2>
+            <a href="{% url 'stuff/recipebook' %}?mode=new&id=-1">Create Recipe Book</a>
+            <a href="{% url 'stuff/recipebook' %}?mode=view&id=-1"><div class="recipe-book">
+                <h3>Recipe Book #1</h3>
+                <p>This is the description for the first recipe book.</p>
+            </div></a>
+        
+            <a href="{% url 'stuff/recipebook' %}?mode=view&id=1"><div class="recipe-book">
+                <h3>Recipe Book #2</h3>
+                <p>This is the description for the first recipe book.</p>
+            </div></a>
+
+            <a href="{% url 'stuff/recipebook' %}?mode=view&id=2"><div class="recipe-book">
+                <h3>Recipe Book #3</h3>
+                <p>This is the description for the first recipe book.</p>
+            </div></a>
+        </div>
+
+        <div>
+            <h2>Recipes</h2>
+            <a href="{% url 'stuff/recipe' %}?mode=new&id=0">Create Recipe</a>
+            <a href="{% url 'stuff/recipe' %}?mode=view&id=0"><div class="recipe-book">
+                <h3>Recipe #1</h3>
+                <p>This is the description for the first recipe.</p>
+            </div></a>
+        
+            <a href="{% url 'stuff/recipe' %}?mode=view&id=1"><div class="recipe-book">
+                <h3>Recipe #2</h3>
+                <p>This is the description for the second recipe.</p>
+            </div></a>
+
+            <a href="{% url 'stuff/recipe' %}?mode=view&id=2"><div class="recipe-book">
+                <h3>Recipe #3</h3>
+                <p>This is the description for the third recipe book.</p>
+            </div></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

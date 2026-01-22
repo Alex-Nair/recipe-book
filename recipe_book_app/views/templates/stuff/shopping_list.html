@@ -1,0 +1,47 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'styles/recipes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-page">
+    <div class="stuff-navigation">
+        <a href="{% url 'stuff' %}">Recipes</a>
+        <a href="{% url 'shopping' %}">Shopping List</a>
+    </div>
+
+    <h2>Shopping List:</h2>
+
+    <div class="shopping-list">
+        <div class="shopping-item">
+            <p>Item #1: Amount</p>
+            <button>Remove</button>
+        </div>
+
+        <div class="shopping-item">
+            <p>Item #2: Amount</p>
+            <button>Remove</button>
+        </div>
+
+        <div class="shopping-item">
+            <p>Item #3: Amount</p>
+            <button>Remove</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <h2>Add New Item:</h2>
+    <form action="post">
+        <label for="name">Name:</label>
+        <input name="name" type="text"></input><br><br>
+
+        <label for="amount">Amount:</label>
+        <input name="amount" type="text"></input><br><br>
+
+        <button type="submit">Add Item</button>
+    </form>
+</div>
+{% endblock %}

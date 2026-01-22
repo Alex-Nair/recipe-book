@@ -1,0 +1,113 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'styles/recipes.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-page">
+    <div class="stuff-navigation">
+        <a href="{% url 'stuff' %}">Recipes</a>
+        <a href="{% url 'shopping' %}">Shopping List</a>
+    </div>
+
+    <div id="view">
+        <h1>Recipe Book Name</h1>
+        <img src="" alt="Book image"></img>
+        <p>Recipe Book description goes here.</p>
+
+        <hr>
+
+        <h2>Recipes:</h2>
+        <div id="view-recipes">
+            <a href="{% url 'stuff/recipe' %}?mode=view&id=0"><div class="recipe">
+                <h3>Recipe #1</h3>
+                <p>This is the description for the first recipe.</p>
+            </div></a>
+        
+            <a href="{% url 'stuff/recipe' %}?mode=view&id=1"><div class="recipe">
+                <h3>Recipe #2</h3>
+                <p>This is the description for the second recipe.</p>
+            </div></a>
+    
+            <a href="{% url 'stuff/recipe' %}?mode=view&id=2"><div class="recipe">
+                <h3>Recipe #3</h3>
+                <p>This is the description for the third recipe book.</p>
+            </div></a>
+        </div>
+
+        <hr>
+
+        <div class="recipe-options">
+            <a href="{% url 'stuff/recipe' %}?mode=new&id={{ id }}"><button>Edit</button></a>
+            <button>Delete</button>
+        </div>
+    </div>
+
+
+    <div id="create">
+        <form>
+            <label for="name">Name:</label>
+            <input name="name" type="text"></input><br><br>
+
+            <label for="image">Image (Optional):</label>
+            <input name="image" type="text"></input><br><br>
+            <img src="" alt="Book image"></img><br><br>
+
+            <label for="description">Description:</label><br>
+            <textarea name="description"></textarea>
+
+            <hr>
+
+            <h2>Recipes:</h2>
+            <div id="create-recipes">
+                <div class="create-recipe">
+                    <h3>Recipe #1</h3>
+                    <p>This is the description for the first recipe.</p>
+                    <button>Add Recipe</button>
+                </div>
+
+                <div class="create-recipe">
+                    <h3>Recipe #2</h3>
+                    <p>This is the description for the second recipe.</p>
+                    <button>Add Recipe</button>
+                </div>
+            
+                <div class="create-recipe">
+                    <h3>Recipe #3</h3>
+                    <p>This is the description for the third recipe.</p>
+                    <button>Add Recipe</button>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="recipe-options">
+                <button type="submit">Submit</button>
+                <a href="{% url 'stuff' %}"><button>Cancel</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Handle view/create mode switching based on query parameter
+    (function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const mode = urlParams.get('mode');
+        
+        const viewDiv = document.getElementById('view');
+        const createDiv = document.getElementById('create');
+        
+        if (mode === 'new') {
+            if (createDiv) createDiv.classList.add('active');
+            if (viewDiv) viewDiv.classList.remove('active');
+        } else {
+            // Default to view mode
+            if (viewDiv) viewDiv.classList.add('active');
+            if (createDiv) createDiv.classList.remove('active');
+        }
+    })();
+</script>
+{% endblock %}
