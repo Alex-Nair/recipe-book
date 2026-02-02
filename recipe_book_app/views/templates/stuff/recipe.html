@@ -54,97 +54,45 @@
         <hr>
 
         <div class="recipe-options">
-            <a href="{% url 'stuff/recipe' %}?mode=new&id={{ id }}"><button>Edit</button></a>
-            <button>Delete</button>
+            <a href="{% url 'stuff/recipe' %}?mode=new&id={{ id }}"><button class="submit-recipe">Edit</button></a>
+            <button class="cancel-recipe">Delete</button>
         </div>
     </div>
 
 
     <div id="create">
-        <form>
-            <label for="name">Name:</label>
-            <input name="name" type="text"></input><br><br>
+        <form id="edit-recipe-form">
+            <label for="edit-recipe-name">Name:</label>
+            <input id="edit-recipe-name" name="name" type="text"><br><br>
 
-            <label for="image">Image (Optional):</label>
-            <input name="image" type="text"></input><br><br>
-            <img src="" alt="Recipe image"></img><br><br>
+            <label for="edit-recipe-image-url">Image (Optional):</label>
+            <input id="edit-recipe-image-url" name="image" type="text" placeholder="https://example.com/image.jpg"><br><br>
+            <img id="edit-recipe-image-preview" src="" alt="Recipe image" style="display: none;"><br><br>
 
-            <label for="description">Description:</label><br>
-            <textarea name="description"></textarea>
+            <label for="edit-recipe-description">Description:</label><br>
+            <textarea id="edit-recipe-description" name="description"></textarea>
 
             <hr>
 
             <h2>Ingredients:</h2>
-            <div id="create-ingredients">
-                <div class="ingredient-create">
-                    <label label="ingredient-name-1">Name:</label>
-                    <input name="ingredient-name-1" type="text"></input><br>
-                    <label label="ingredient-amount-1">Amount:</label>
-                    <input name="ingredient-amount-1" type="text"></input><br><br>
-                </div>
-
-                <div class="ingredient-create">
-                    <label label="ingredient-name-2">Name:</label>
-                    <input name="ingredient-name-2" type="text"></input><br>
-                    <label label="ingredient-amount-2">Amount:</label>
-                    <input name="ingredient-amount-2" type="text"></input><br><br>
-                </div>
-            
-                <div class="ingredient-create">
-                    <label label="ingredient-name-3">Name:</label>
-                    <input name="ingredient-name-3" type="text"></input><br>
-                    <label label="ingredient-amount-3">Amount:</label>
-                    <input name="ingredient-amount-3" type="text"></input><br><br>
-                </div>
-            </div>
+            <div id="create-ingredients"></div>
+            <button type="button" id="add-ingredient-btn" class="btn-add">Add ingredient</button>
 
             <hr>
 
             <h2>Steps:</h2>
-            <div id="create-steps">
-                <div class="step">
-                    <label for="step-1">Step #1:</label><br>
-                    <textarea name="step-1"></textarea><br><br>
-                </div>
-
-                <div class="step">
-                    <label for="step-1">Step #2:</label><br>
-                    <textarea name="step-2"></textarea><br><br>
-                </div>
-            
-                <div class="step">
-                    <label for="step-3">Step #3:</label><br>
-                    <textarea name="step-3"></textarea><br><br>
-                </div>
-            </div>
+            <div id="create-steps"></div>
+            <button type="button" id="add-step-btn" class="btn-add">Add step</button>
 
             <hr>
 
             <div class="recipe-options">
-                <button type="submit">Submit</button>
-                <a href="{% url 'stuff' %}"><button>Cancel</button></a>
+                <button type="submit" class="submit-recipe">Submit</button>
+                <a href="{% url 'stuff' %}"><button type="button" class="cancel-recipe">Cancel</button></a>
             </div>
         </form>
     </div>
 </div>
 
-<script>
-    // Handle view/create mode switching based on query parameter
-    (function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const mode = urlParams.get('mode');
-        
-        const viewDiv = document.getElementById('view');
-        const createDiv = document.getElementById('create');
-        
-        if (mode === 'new') {
-            if (createDiv) createDiv.classList.add('active');
-            if (viewDiv) viewDiv.classList.remove('active');
-        } else {
-            // Default to view mode
-            if (viewDiv) viewDiv.classList.add('active');
-            if (createDiv) createDiv.classList.remove('active');
-        }
-    })();
-</script>
+<script src="{% static 'scripts/recipe.js' %}"></script>
 {% endblock %}

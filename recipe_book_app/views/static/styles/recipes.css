@@ -215,25 +215,23 @@
     text-decoration: none;
 }
 
-.recipe-options button:first-of-type,
-.recipe-options a:first-of-type button {
+.recipe-options button.submit-recipe {
     background-color: #7a9c7a;
     color: white;
 }
 
-.recipe-options button:first-of-type:hover,
-.recipe-options a:first-of-type button:hover {
+.recipe-options button.submit-recipe:hover {
     background-color: #6a8c6a;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.recipe-options button:last-of-type {
+.recipe-options button.cancel-recipe {
     background-color: #dc3545;
     color: white;
 }
 
-.recipe-options button:last-of-type:hover {
+.recipe-options button.cancel-recipe:hover {
     background-color: #c82333;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -290,8 +288,70 @@
     object-fit: cover;
 }
 
+/* Create Mode - Add buttons */
+.btn-add {
+    padding: 0.6rem 1.2rem;
+    background-color: #7a9c7a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.btn-add:hover {
+    background-color: #6a8c6a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Create Mode - Row actions (remove, move up/down) */
+.row-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.row-actions button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-remove-ingredient,
+.btn-remove-step {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-remove-ingredient:hover,
+.btn-remove-step:hover {
+    background-color: #c82333;
+}
+
+.btn-move-up,
+.btn-move-down {
+    background-color: #e0ebe0;
+    color: #5a7c5a;
+    min-width: 2.25rem;
+}
+
+.btn-move-up:hover,
+.btn-move-down:hover {
+    background-color: #7a9c7a;
+    color: white;
+}
+
 /* Create Mode - Ingredients */
-.ingredient-create {
+.ingredient-create,
+.ingredient-row {
     background-color: #f9f9f9;
     padding: 1.5rem;
     border-radius: 8px;
@@ -299,31 +359,46 @@
     margin-bottom: 1rem;
 }
 
-.ingredient-create label {
+.ingredient-create label,
+.ingredient-row label {
     display: inline-block;
     width: 100px;
     margin-right: 1rem;
 }
 
-.ingredient-create input[type="text"] {
+.ingredient-create input[type="text"],
+.ingredient-row input[type="text"] {
     width: calc(100% - 120px);
     display: inline-block;
     margin-bottom: 0.75rem;
 }
 
+.ingredient-field {
+    margin-bottom: 0.75rem;
+}
+
+.ingredient-row .ingredient-name,
+.ingredient-row .ingredient-amount {
+    margin-right: 1rem;
+}
+
 /* Create Mode - Steps */
-#create-steps .step {
+#create-steps .step,
+#create-steps .step-row {
     background-color: #f9f9f9;
     border: 2px solid #e0ebe0;
 }
 
-#create-steps .step label {
+#create-steps .step label,
+#create-steps .step-row .step-label {
     color: #5a7c5a;
     font-weight: 600;
     margin-bottom: 0.75rem;
+    display: block;
 }
 
-#create-steps .step textarea {
+#create-steps .step textarea,
+#create-steps .step-row .step-content {
     width: 100%;
     min-height: 100px;
     margin-bottom: 0;
